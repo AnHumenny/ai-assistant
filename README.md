@@ -18,6 +18,10 @@
 - Защищён от prompt injection и попыток получить скидку: guard срабатывает
   до retrieval и до LLM.
 
+## Демо
+
+[![Демо AI Sales Assistant](https://img.youtube.com/vi/_S01g3BYyX0/maxresdefault.jpg)](https://youtu.be/_S01g3BYyX0)  
+
 ## Структура
 
 ```
