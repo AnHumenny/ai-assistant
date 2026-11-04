@@ -1,8 +1,8 @@
 # AI Sales Assistant
 
 Небольшой AI-ассистент интернет-магазина. Отвечает на типовые вопросы
-клиентов (товар, доставка, возврат, брак, скидки) строго по регламенту
-из базы знаний и не выдумывает факты, которых в базе нет.
+клиентов (товар, доставка, возврат, брак, скидки) по регламенту
+из базы знаний.
 
 Стек: FastAPI + PostgreSQL + pgvector + React. Эмбеддинги — локальная
 модель `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`
@@ -128,9 +128,9 @@ python -m backend.tests.manual_crash_test
 python -m pytest backend/tests/ -v
 ```
 
-- `test_guards.py` — guard на инъекции/скидки, fallback, вызов LLM (моки, без БД).
-- `test_llm.py` — парсинг JSON и plain-text ответов LLM.
-- `manual_*.py` — ручные скрипты (pytest их не собирает).
+- `test_guards.py` - guard на инъекции/скидки, fallback, вызов LLM (моки, без БД).
+- `test_llm.py` - парсинг JSON и plain-text ответов LLM.
+- `manual_*.py` - ручные скрипты (pytest их не собирает).
 
 ## База знаний
 
