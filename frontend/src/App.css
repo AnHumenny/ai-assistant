@@ -1,0 +1,292 @@
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
+/* Header */
+
+.header {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  background: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid #e5e5e7;
+  backdrop-filter: blur(20px);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.status {
+  color: #6e6e73;
+  font-size: 13px;
+}
+
+/* Main layout */
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  max-width: 1180px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+/* Panels */
+
+.chat-panel,
+.assistant-panel {
+  background: #ffffff;
+  border: 1px solid #e5e5e7;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.03),
+    0 12px 32px rgba(0, 0, 0, 0.04);
+}
+
+.panel-title {
+  padding: 20px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid #ededed;
+}
+
+/* Messages */
+
+.messages {
+  min-height: 360px;
+  padding: 24px;
+}
+
+.message {
+  max-width: 82%;
+  padding: 15px 17px;
+  border-radius: 16px;
+}
+
+.message.customer {
+  background: #f2f2f7;
+}
+
+.message-label {
+  margin-bottom: 7px;
+  color: #86868b;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.message-text {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Input */
+
+.input-area {
+  padding: 20px 24px 24px;
+  border-top: 1px solid #ededed;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 90px;
+  padding: 14px 15px;
+
+  background: #f5f5f7;
+  border: 1px solid #dedee0;
+  border-radius: 12px;
+
+  color: #1d1d1f;
+  font: inherit;
+  font-size: 14px;
+
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+textarea::placeholder {
+  color: #8e8e93;
+}
+
+textarea:focus {
+  background: #ffffff;
+  border-color: #b8b8bd;
+}
+
+/* Button */
+
+button {
+  margin-top: 12px;
+  padding: 10px 18px;
+
+  border: 1px solid #d2d2d7;
+  border-radius: 10px;
+
+  background: #1d1d1f;
+  color: #ffffff;
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+button:hover {
+  background: #333336;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* AI results */
+
+.assistant-panel {
+  min-height: 500px;
+}
+
+.result-block {
+  padding: 22px;
+  border-bottom: 1px solid #ededed;
+}
+
+.result-block.manager {
+  background: #fafafa;
+}
+
+.result-title {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6e6e73;
+}
+
+.result-content {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.muted {
+  color: #8e8e93;
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+  .workspace {
+    grid-template-columns: 1fr;
+    margin-top: 24px;
+  }
+
+  .header {
+    padding: 0 20px;
+  }
+}
+
+.error {
+  padding: 0 24px 20px;
+  color: #8e3b3b;
+  font-size: 13px;
+}
+
+/* Quick questions */
+
+.quick-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 24px 16px;
+}
+
+.quick-question {
+  margin-top: 0;
+  padding: 7px 12px;
+
+  background: #f2f2f7;
+  color: #1d1d1f;
+  border: 1px solid #dedee0;
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.quick-question:hover:not(:disabled) {
+  background: #e8e8ed;
+  border-color: #c7c7cc;
+}
+
+.quick-question:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading state: header */
+
+.status-busy {
+  color: #1d1d1f;
+}
+
+.status-busy::first-letter {
+  animation: pulse-dot 1s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.25; }
+}
+
+/* Skeleton loader */
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    #f0f0f3 0%,
+    #e6e6ea 50%,
+    #f0f0f3 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
